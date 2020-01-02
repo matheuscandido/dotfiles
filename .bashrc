@@ -2,6 +2,8 @@ export PATH="/home/$USER/.pyenv/bin:$PATH"
 eval "$(pyenv virtualenv-init -)"
 eval "$(pyenv init -)"
 
+alias open='xdg-open'
+
 # funcoes para ps1
 parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
