@@ -1,17 +1,9 @@
-export PATH="/home/$USER/.pyenv/bin:$PATH"
-eval "$(pyenv virtualenv-init -)"
-eval "$(pyenv init -)"
-
-alias open='xdg-open'
-
-# funcoes para ps1
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 # If not running interactively, don't do anything
 case $- in
@@ -68,7 +60,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] $(parse_git_branch)\n\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u 🔦 \[\033[01;34m\]\w\[\033[00m\] $(parse_git_branch) \n🚀 '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
